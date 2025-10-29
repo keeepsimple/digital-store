@@ -221,10 +221,6 @@ public class AccountService : IAccountService
 
     public async Task<string> SendOtpAsync(SendOtpDto sendOtpDto, CancellationToken cancellationToken = default)
     {
-        // Check if email is already registered
-        if (await IsEmailExistsAsync(sendOtpDto.Email, cancellationToken))
-            throw new InvalidOperationException("Email đã được đăng ký");
-
         // Generate 6-digit OTP
         var otp = GenerateOtp();
 

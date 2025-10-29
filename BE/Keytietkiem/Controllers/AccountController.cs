@@ -20,6 +20,11 @@ public class AccountController : ControllerBase
     [Route("send-otp")]
     public async Task<IActionResult> SendOtp(SendOtpDto dto)
     {
+        var isExist = await _accountService.IsEmailExistsAsync(dto.Email);
+        if (isExist)
+        {
+            return BadRequest("Email đã được sử dụng");
+        }
         var response = await _accountService.SendOtpAsync(dto);
         return Ok(response);
     }

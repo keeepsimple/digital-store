@@ -10,6 +10,7 @@ import AdminLayout from "./components/admin/Layout.jsx";
 import CategoryDetail from "./pages/admin/CategoryDetail.jsx";
 import ProductDetail from "./pages/admin/ProductDetail.jsx";
 import SignUpPage from "./pages/auth/SignUpPage.jsx";
+import LoginPage from "./pages/auth/LoginPage.jsx";
 function Home() {
   return (
     <AdminLayout>
@@ -25,6 +26,7 @@ export default function App() {
   return (
     <Routes>
       {/* Public routes */}
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<SignUpPage />} />
 
       {/* Admin routes */}
